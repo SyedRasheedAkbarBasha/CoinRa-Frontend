@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import { styles } from "../assets/style/home.styles.js";
-import { COLORS } from "../constants/color";
+import { COLORS } from "../constants/color.js";
 
 export const BalanceCard = ({ summary }) => {
   return (
