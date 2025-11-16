@@ -48,7 +48,7 @@ CREATE TABLE transactions(
 );
 ```
 
-## 🎯 Dream Savings Table
+### 🎯 Dream Savings Table
 
 ```sql
 CREATE TABLE dream_savings (
@@ -60,29 +60,35 @@ CREATE TABLE dream_savings (
 );
 ```
 
+---
+
 ## 🚀 Getting Started
-📌 Prerequisites
+
+### 📌 Prerequisites
+
 - Node.js 16+
-
 - PostgreSQL database (Neon recommended)
-
 - Redis instance (Upstash recommended)
 
+---
+
 ## ⚙️ Installation & Setup
-1️⃣ Clone the repository
+
+### 1️⃣ Clone the repository
 
 ```bash
 git clone https://github.com/yourusername/wallet-management-backend.git
 cd wallet-management-backend
 ```
 
-## 2️⃣ Install dependencies
+### 2️⃣ Install dependencies
 
-Copy code
+```bash
 npm install
+```
 
-## 3️⃣ Configure environment variables
-Create a .env file:
+### 3️⃣ Configure environment variables  
+Create a **.env** file:
 
 ```ini
 DATABASE_URL=your_neon_postgresql_connection_string
@@ -93,58 +99,77 @@ NODE_ENV=development
 API_URL=your_deployment_url
 ```
 
-## 4️⃣ Initialize the database
-Tables are auto-created on first server start.
+### 4️⃣ Initialize the database
 
-## 5️⃣ Run the server
+_No manual steps required—tables are auto-created on first server start._
 
-Copy code
+### 5️⃣ Run the server
+
+```bash
 cd backend
 npm start
+```
 
+---
 
 ## 📡 API Endpoints
-📍 Transactions
 
-- **GET	/api/transactions/:userId**	Fetch all transactions
-- **POST	/api/transactions**	Create transaction
-- **DELETE	/api/transactions/:id**	Delete transaction
-- **GET	/api/transactions/summary/:userId**	Get balance/income/expense
+### 📍 Transactions
+
+- **GET /api/transactions/:userId** — Fetch all transactions  
+- **POST /api/transactions** — Create a transaction  
+- **DELETE /api/transactions/:id** — Delete a transaction  
+- **GET /api/transactions/summary/:userId** — Get balance, income & expenses  
+
+---
 
 ## 🎯 Dream Savings
 
-- **GET	/api/transactions/dream-savings/:userId**	Get all savings goals
-- **POST	/api/transactions/dream-savings/:userId**	Add savings goal
-- **DELETE	/api/transactions/dream-savings/:userId**	Delete savings goal
+- **GET /api/transactions/dream-savings/:userId** — Get all savings goals  
+- **POST /api/transactions/dream-savings/:userId** — Add savings goal  
+- **DELETE /api/transactions/dream-savings/:userId** — Delete savings goal  
+
+---
 
 ## ❤️ Health Check
 
-**GET	/health**	System status
+```plaintext
+GET /health
+```
+
+---
 
 ## 🔒 Security Features
-- Redis-based rate limiting (100 requests / 60 seconds)
 
-- Error handling and input validation
+- Redis-based rate limiting (100 requests / 60 seconds)  
+- Input validation & error handling  
+- CORS configuration  
+- Parameterized SQL queries (SQL injection safe)  
 
-- CORS protection
-
-- SQL injection prevention (parameterized queries)
+---
 
 ## ⚙️ Configuration Details
-**🕒 Cron Job**
-- Pings /health every 14 minutes in production
 
-- Keeps deployment active
+### 🕒 Cron Job  
+- Pings **/health** every 14 minutes in production  
+- Keeps the deployment active  
 
-** 🚦 Rate Limiting** 
-- Redis sliding window algorithm
+### 🚦 Rate Limiting  
+- Implemented using Redis sliding window algorithm  
+- Protects API from abuse & DDoS attempts  
 
-- Protects API from abuse and DDoS
+---
 
 ## 🚀 Deployment
-The backend is optimized for platforms on  Render
 
+- Pre-configured for deployment on **Render**  
+- Add all environment variables in the hosting platform  
+- Backend auto-creates tables on first boot  
+
+---
 
 ## 🤝 Contributing
-Contributions are welcome!
-Feel free to open issues or submit pull requests for improvements.
+
+Contributions are welcome!  
+Open issues or submit pull requests to enhance the project.
+
