@@ -37,7 +37,7 @@ The **Wallet Management System Backend** is a RESTful API built to manage user t
 
 ### 🧮 Transactions Table
 
-```sql
+
 CREATE TABLE transactions(
     id SERIAL PRIMARY KEY,
     user_id VARCHAR(255) NOT NULL,
@@ -47,8 +47,7 @@ CREATE TABLE transactions(
     created_at DATE NOT NULL DEFAULT CURRENT_DATE
 );
 
-```
-```sql 
+
 ## 🎯 Dream Savings Table
 
 Copy code
@@ -59,7 +58,7 @@ CREATE TABLE dream_savings (
     amount DECIMAL(10,2) NOT NULL,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-```
+
 ## 🚀 Getting Started
 📌 Prerequisites
 - Node.js 16+
@@ -70,16 +69,16 @@ CREATE TABLE dream_savings (
 
 ## ⚙️ Installation & Setup
 1️⃣ Clone the repository
-bash```
+
 Copy code
 git clone https://github.com/yourusername/wallet-management-backend.git
 cd wallet-management-backend
-```
+
 ## 2️⃣ Install dependencies
-bash```
+
 Copy code
 npm install
-```
+
 ## 3️⃣ Configure environment variables
 Create a .env file:
 
@@ -96,29 +95,29 @@ API_URL=your_deployment_url
 Tables are auto-created on first server start.
 
 ## 5️⃣ Run the server
-bash```
+
 Copy code
 cd backend
 npm start
-```
+
 
 ## 📡 API Endpoints
 📍 Transactions
 Method	Endpoint	Description
-GET	/api/transactions/:userId	Fetch all transactions
-POST	/api/transactions	Create transaction
-DELETE	/api/transactions/:id	Delete transaction
-GET	/api/transactions/summary/:userId	Get balance/income/expense
+**GET	/api/transactions/:userId**	Fetch all transactions
+**POST	/api/transactions**	Create transaction
+**DELETE	/api/transactions/:id**	Delete transaction
+**GET	/api/transactions/summary/:userId**	Get balance/income/expense
 
 ## 🎯 Dream Savings
 Method	Endpoint	Description
-GET	/api/transactions/dream-savings/:userId	Get all savings goals
-POST	/api/transactions/dream-savings/:userId	Add savings goal
-DELETE	/api/transactions/dream-savings/:userId	Delete savings goal
+**GET	/api/transactions/dream-savings/:userId**	Get all savings goals
+**POST	/api/transactions/dream-savings/:userId**	Add savings goal
+**DELETE	/api/transactions/dream-savings/:userId**	Delete savings goal
 
 ## ❤️ Health Check
-Method	Endpoint	Description
-GET	/health	System status
+
+**GET	/health**	System status
 
 ## 🔒 Security Features
 - Redis-based rate limiting (100 requests / 60 seconds)
