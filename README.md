@@ -37,7 +37,7 @@ The **Wallet Management System Backend** is a RESTful API built to manage user t
 
 ### 🧮 Transactions Table
 
-
+```sql
 CREATE TABLE transactions(
     id SERIAL PRIMARY KEY,
     user_id VARCHAR(255) NOT NULL,
@@ -46,11 +46,11 @@ CREATE TABLE transactions(
     category VARCHAR(255) NOT NULL,
     created_at DATE NOT NULL DEFAULT CURRENT_DATE
 );
-
+```
 
 ## 🎯 Dream Savings Table
 
-Copy code
+```sql
 CREATE TABLE dream_savings (
     id SERIAL PRIMARY KEY,
     user_id VARCHAR(255) NOT NULL,
@@ -58,6 +58,7 @@ CREATE TABLE dream_savings (
     amount DECIMAL(10,2) NOT NULL,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+```
 
 ## 🚀 Getting Started
 📌 Prerequisites
@@ -70,9 +71,10 @@ CREATE TABLE dream_savings (
 ## ⚙️ Installation & Setup
 1️⃣ Clone the repository
 
-Copy code
+```bash
 git clone https://github.com/yourusername/wallet-management-backend.git
 cd wallet-management-backend
+```
 
 ## 2️⃣ Install dependencies
 
@@ -82,14 +84,14 @@ npm install
 ## 3️⃣ Configure environment variables
 Create a .env file:
 
-ini
-Copy code
+```ini
 DATABASE_URL=your_neon_postgresql_connection_string
 UPSTASH_REDIS_REST_URL=your_redis_url
 UPSTASH_REDIS_REST_TOKEN=your_redis_token
 PORT=5001
 NODE_ENV=development
 API_URL=your_deployment_url
+```
 
 ## 4️⃣ Initialize the database
 Tables are auto-created on first server start.
@@ -103,17 +105,17 @@ npm start
 
 ## 📡 API Endpoints
 📍 Transactions
-Method	Endpoint	Description
-**GET	/api/transactions/:userId**	Fetch all transactions
-**POST	/api/transactions**	Create transaction
-**DELETE	/api/transactions/:id**	Delete transaction
-**GET	/api/transactions/summary/:userId**	Get balance/income/expense
+
+- **GET	/api/transactions/:userId**	Fetch all transactions
+- **POST	/api/transactions**	Create transaction
+- **DELETE	/api/transactions/:id**	Delete transaction
+- **GET	/api/transactions/summary/:userId**	Get balance/income/expense
 
 ## 🎯 Dream Savings
-Method	Endpoint	Description
-**GET	/api/transactions/dream-savings/:userId**	Get all savings goals
-**POST	/api/transactions/dream-savings/:userId**	Add savings goal
-**DELETE	/api/transactions/dream-savings/:userId**	Delete savings goal
+
+- **GET	/api/transactions/dream-savings/:userId**	Get all savings goals
+- **POST	/api/transactions/dream-savings/:userId**	Add savings goal
+- **DELETE	/api/transactions/dream-savings/:userId**	Delete savings goal
 
 ## ❤️ Health Check
 
