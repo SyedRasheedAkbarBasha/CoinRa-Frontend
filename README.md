@@ -46,8 +46,9 @@ CREATE TABLE transactions(
     category VARCHAR(255) NOT NULL,
     created_at DATE NOT NULL DEFAULT CURRENT_DATE
 );
+
 ```
-```
+```sql 
 ## 🎯 Dream Savings Table
 
 Copy code
@@ -58,25 +59,28 @@ CREATE TABLE dream_savings (
     amount DECIMAL(10,2) NOT NULL,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-🚀 Getting Started
+```
+## 🚀 Getting Started
 📌 Prerequisites
-Node.js 16+
+- Node.js 16+
 
-PostgreSQL database (Neon recommended)
+- PostgreSQL database (Neon recommended)
 
-Redis instance (Upstash recommended)
+- Redis instance (Upstash recommended)
 
-⚙️ Installation & Setup
+## ⚙️ Installation & Setup
 1️⃣ Clone the repository
-bash
+bash```
 Copy code
 git clone https://github.com/yourusername/wallet-management-backend.git
 cd wallet-management-backend
-2️⃣ Install dependencies
-bash
+```
+## 2️⃣ Install dependencies
+bash```
 Copy code
 npm install
-3️⃣ Configure environment variables
+```
+## 3️⃣ Configure environment variables
 Create a .env file:
 
 ini
@@ -87,15 +91,18 @@ UPSTASH_REDIS_REST_TOKEN=your_redis_token
 PORT=5001
 NODE_ENV=development
 API_URL=your_deployment_url
-4️⃣ Initialize the database
+
+## 4️⃣ Initialize the database
 Tables are auto-created on first server start.
 
-5️⃣ Run the server
-bash
+## 5️⃣ Run the server
+bash```
 Copy code
 cd backend
 npm start
-📡 API Endpoints
+```
+
+## 📡 API Endpoints
 📍 Transactions
 Method	Endpoint	Description
 GET	/api/transactions/:userId	Fetch all transactions
@@ -103,49 +110,40 @@ POST	/api/transactions	Create transaction
 DELETE	/api/transactions/:id	Delete transaction
 GET	/api/transactions/summary/:userId	Get balance/income/expense
 
-🎯 Dream Savings
+## 🎯 Dream Savings
 Method	Endpoint	Description
 GET	/api/transactions/dream-savings/:userId	Get all savings goals
 POST	/api/transactions/dream-savings/:userId	Add savings goal
 DELETE	/api/transactions/dream-savings/:userId	Delete savings goal
 
-❤️ Health Check
+## ❤️ Health Check
 Method	Endpoint	Description
 GET	/health	System status
 
-🔒 Security Features
-Redis-based rate limiting (100 requests / 60 seconds)
+## 🔒 Security Features
+- Redis-based rate limiting (100 requests / 60 seconds)
 
-Error handling and input validation
+- Error handling and input validation
 
-CORS protection
+- CORS protection
 
-SQL injection prevention (parameterized queries)
+- SQL injection prevention (parameterized queries)
 
-⚙️ Configuration Details
-🕒 Cron Job
-Pings /health every 14 minutes in production
+## ⚙️ Configuration Details
+**🕒 Cron Job**
+- Pings /health every 14 minutes in production
 
-Keeps deployment active
+- Keeps deployment active
 
-🚦 Rate Limiting
-Redis sliding window algorithm
+** 🚦 Rate Limiting** 
+- Redis sliding window algorithm
 
-Protects API from abuse and DDoS
+- Protects API from abuse and DDoS
 
-🚀 Deployment
-The backend is optimized for platforms like Render, Railway, Vercel Functions, etc.
+## 🚀 Deployment
+The backend is optimized for platforms on  Render
 
-Deployment steps:
 
-Add environment variables in dashboard
-
-Ensure Neon PostgreSQL URL is correct
-
-Ensure Redis credentials are valid
-
-Start server — tables auto-create on first run
-
-🤝 Contributing
+## 🤝 Contributing
 Contributions are welcome!
 Feel free to open issues or submit pull requests for improvements.
