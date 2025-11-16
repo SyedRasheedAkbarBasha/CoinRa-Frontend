@@ -1,51 +1,150 @@
-# CoinRa-Frontend
-Frontend code of the CoinRa application
+# 🧾 Wallet Management System Backend
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A **Node.js + Express** backend for managing personal finances, transactions, dream savings, and financial summaries — powered by **PostgreSQL (Neon)** and **Redis** for secure and scalable performance.
 
-## Get started
+---
 
-1. Install dependencies
+## 📋 Overview
 
-   ```bash
-   npm install
-   ```
+The **Wallet Management System Backend** is a RESTful API built to manage user transactions, savings goals, and financial summaries. It includes rate limiting, cron jobs, optimized queries, and secure database operations to ensure reliability and performance.
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## ✨ Features
 
-In the output, you'll find options to open the app in a
+- **Transaction Management** – Create, delete, and retrieve transactions  
+- **Dream Savings Goals** – Add and track long-term savings purposes  
+- **Financial Summary** – Balance, income, and expense calculations  
+- **Rate Limiting** – Redis-based request throttling  
+- **Health Monitoring** – Cron job to keep server alive  
+- **Secure Data Handling** – PostgreSQL with robust transaction logic  
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🛠️ Technologies Used
 
-## Get a fresh project
+- **Node.js** – Runtime environment  
+- **Express.js** – API framework  
+- **PostgreSQL** – Database  
+- **Neon** – Serverless PostgreSQL hosting  
+- **Redis** – Rate limiting and caching  
+- **Cron** – Scheduled tasks  
+- **CORS** – API access control  
 
-When you're ready, run:
+---
 
-```bash
-npm run reset-project
+## 🗄️ Database Schema
+
+### 🧮 Transactions Table
+
+```sql
+CREATE TABLE transactions(
+    id SERIAL PRIMARY KEY,
+    user_id VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    created_at DATE NOT NULL DEFAULT CURRENT_DATE
+);
 ```
+## 🎯 Dream Savings Table
+```sql
+Copy code
+CREATE TABLE dream_savings (
+    id SERIAL PRIMARY KEY,
+    user_id VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+🚀 Getting Started
+📌 Prerequisites
+Node.js 16+
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+PostgreSQL database (Neon recommended)
 
-## Learn more
+Redis instance (Upstash recommended)
 
-To learn more about developing your project with Expo, look at the following resources:
+⚙️ Installation & Setup
+1️⃣ Clone the repository
+bash
+Copy code
+git clone https://github.com/yourusername/wallet-management-backend.git
+cd wallet-management-backend
+2️⃣ Install dependencies
+bash
+Copy code
+npm install
+3️⃣ Configure environment variables
+Create a .env file:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+ini
+Copy code
+DATABASE_URL=your_neon_postgresql_connection_string
+UPSTASH_REDIS_REST_URL=your_redis_url
+UPSTASH_REDIS_REST_TOKEN=your_redis_token
+PORT=5001
+NODE_ENV=development
+API_URL=your_deployment_url
+4️⃣ Initialize the database
+Tables are auto-created on first server start.
 
-## Join the community
+5️⃣ Run the server
+bash
+Copy code
+cd backend
+npm start
+📡 API Endpoints
+📍 Transactions
+Method	Endpoint	Description
+GET	/api/transactions/:userId	Fetch all transactions
+POST	/api/transactions	Create transaction
+DELETE	/api/transactions/:id	Delete transaction
+GET	/api/transactions/summary/:userId	Get balance/income/expense
 
-Join our community of developers creating universal apps.
+🎯 Dream Savings
+Method	Endpoint	Description
+GET	/api/transactions/dream-savings/:userId	Get all savings goals
+POST	/api/transactions/dream-savings/:userId	Add savings goal
+DELETE	/api/transactions/dream-savings/:userId	Delete savings goal
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+❤️ Health Check
+Method	Endpoint	Description
+GET	/health	System status
+
+🔒 Security Features
+Redis-based rate limiting (100 requests / 60 seconds)
+
+Error handling and input validation
+
+CORS protection
+
+SQL injection prevention (parameterized queries)
+
+⚙️ Configuration Details
+🕒 Cron Job
+Pings /health every 14 minutes in production
+
+Keeps deployment active
+
+🚦 Rate Limiting
+Redis sliding window algorithm
+
+Protects API from abuse and DDoS
+
+🚀 Deployment
+The backend is optimized for platforms like Render, Railway, Vercel Functions, etc.
+
+Deployment steps:
+
+Add environment variables in dashboard
+
+Ensure Neon PostgreSQL URL is correct
+
+Ensure Redis credentials are valid
+
+Start server — tables auto-create on first run
+
+🤝 Contributing
+Contributions are welcome!
+Feel free to open issues or submit pull requests for improvements.
