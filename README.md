@@ -47,8 +47,9 @@ CREATE TABLE transactions(
     created_at DATE NOT NULL DEFAULT CURRENT_DATE
 );
 ```
+```
 ## 🎯 Dream Savings Table
-```sql
+
 Copy code
 CREATE TABLE dream_savings (
     id SERIAL PRIMARY KEY,
